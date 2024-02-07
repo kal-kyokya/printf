@@ -2,40 +2,48 @@
 
 /**
  * _printf - Send to stdout a formatted string passed in it.
- * @fmat: String specifying expected data types.
+ * @format: String specifying expected data types.
  *
- * Return: 0 if programs runs succesfully.
+ * Return: Number of characters printed.
  */
-int _printf(const char *fmat, ...)
+int _printf(const char *format, ...)
 {
-	txf tf[] = {
-		{"%c", print_char},
-		{"%s", print_str}
-	};
+	char *str;
+	int count1, count2, len;
 	va_list ptr_to_arg;
-	int i;
+	char c;
+	char *input_string;
 
-	va_start(ptr_to_arg, fmat);
-	i = 0;
-	while (fmat != NULL && fmat[i] != '\0')
+	count1 = len = 0;
+	va_start(ptr_to_arg, format);
+	while (format[count1] != '\0')
 	{
-		if (fmat[i] == '%' && tf[0].s == fmat[i + 1])
+		if (format[count1] == 37 && format[count + 1] == 'c')
 		{
-			tf[0].func(ptr_to_arg);
-			i = i + 2;
+			c = va_arg(ptr_to_arg, char);
+			_putchar(c);
+			len++;
+			count1++;
 		}
-		else if (fmat[i] == '%' && tf[1].s == fmat[i + 1])
+		else if (format[count1] == 37 && format[count + 1] == 's')
 		{
-			tf[1].func(ptr_to_arg);
-			i = i + 2;
+			input_string = var_arg(ptr_to_arg, char*);
+			count2 = 0;
+			while (input_string[count2] != '\0')
+			{
+				_putchar(input_string[count2]);
+				count2++;
+				len++;
+			}
+			count1++;
 		}
 		else
 		{
-			_putchar(fmat[i]);
-			i++;
+			_putchar(format[count1]);
+			count1++;
+			len++;
 		}
 	}
 
-	va_end(ptr_to_arg);
-	return (0);
+	return (len - 1);
 }
