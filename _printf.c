@@ -8,8 +8,7 @@
  */
 int _printf(const char *fmat, ...)
 {
-	txf tf[] =
-	{
+	txf tf[] = {
 		{"c", print_char},
 		{"s", print_str}
 	};
