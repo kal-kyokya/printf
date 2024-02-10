@@ -2,48 +2,45 @@
 
 /**
  * _printf - Send to stdout a formatted string passed in it.
- * @format: String specifying expected data types.
+ * @fmat: String specifying expected data types.
  *
- * Return: Number of characters printed.
+ * Return: 0 if programs runs succesfully.
  */
-int _printf(const char *format, ...)
+int _printf(const char *fmat, ...)
 {
-	char *str;
-	int count1, count2, len;
-	va_list ptr_to_arg;
-	char c;
-	char *input_string;
-
-	count1 = len = 0;
-	va_start(ptr_to_arg, format);
-	while (format[count1] != '\0')
+	txf tf[] =
 	{
-		if (format[count1] == 37 && format[count + 1] == 'c')
+		{"c", print_char},
+		{"s", print_str}
+	};
+	va_list ptr_to_arg;
+	int i, count;
+
+	va_start(ptr_to_arg, fmat);
+	i = 0;
+	while (fmat != NULL && fmat[i] != '\0')
+	{
+		if (fmat[i] == 37 && fmat[i + 1] == 37)
 		{
-			c = va_arg(ptr_to_arg, char);
-			_putchar(c);
-			len++;
-			count1++;
+			_putchar('%');
+			i = i + 2;
 		}
-		else if (format[count1] == 37 && format[count + 1] == 's')
+		else if (fmat[i] == 37)
 		{
-			input_string = var_arg(ptr_to_arg, char*);
-			count2 = 0;
-			while (input_string[count2] != '\0')
+			count = 0;
+			while (count < 2)
 			{
-				_putchar(input_string[count2]);
-				count2++;
-				len++;
+				if (tf[count].s[count] == fmat[i + 1])
+				{
+					tf[count].func(ptr_to_arg);
+					break;
+				}
+				count++;
 			}
-			count1++;
 		}
-		else
-		{
-			_putchar(format[count1]);
-			count1++;
-			len++;
-		}
+		i++;
 	}
 
-	return (len - 1);
+	va_end(ptr_to_arg);
+	return (0);
 }
