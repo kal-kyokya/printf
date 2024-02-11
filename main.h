@@ -6,8 +6,10 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void print_char(va_list ptr_to_arg);
-void print_str(va_list ptr_to_arg);
+int print_char(va_list ptr_to_arg);
+int print_str(va_list ptr_to_arg);
+int print_nary(va_list ptr_to_arg);
+int binary_printer(int x);
 
 /**
  * struct typeXfunc - Matches specifier and function.

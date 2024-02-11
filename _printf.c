@@ -4,34 +4,31 @@
  * _printf - Send to stdout a formatted string passed in it.
  * @fmat: String specifying expected data types.
  *
- * Return: 0 if programs runs succesfully.
+ * Return: Number of characters printed on screen.
  */
 int _printf(const char *fmat, ...)
 {
 	txf tf[] = {
 		{"c", print_char},
-		{"s", print_str}
+		{"s", print_str},
+		{"b", print_nary},
+		{"%", print_percent}
 	};
 	va_list ptr_to_arg;
-	int i, count;
+	int i, count, len;
 
 	va_start(ptr_to_arg, fmat);
-	i = 0;
+	i = len = 0;
 	while (fmat != NULL && fmat[i] != '\0')
 	{
-		if (fmat[i] == 37 && fmat[i + 1] == 37)
-		{
-			_putchar('%');
-			i = i + 2;
-		}
-		else if (fmat[i] == 37)
+		if (fmat[i] == 37)
 		{
 			count = 0;
-			while (count < 2)
+			while (count < 4)
 			{
 				if (tf[count].s[count] == fmat[i + 1])
 				{
-					tf[count].func(ptr_to_arg);
+					len += tf[count].func(ptr_to_arg);
 					break;
 				}
 				count++;
@@ -41,5 +38,5 @@ int _printf(const char *fmat, ...)
 	}
 
 	va_end(ptr_to_arg);
-	return (0);
+	return (len);
 }
