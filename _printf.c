@@ -29,6 +29,7 @@ int _printf(const char *fmat, ...)
 				if (tf[count].s[count] == fmat[i + 1])
 				{
 					len += tf[count].func(ptr_to_arg);
+					i++;
 					break;
 				}
 				count++;

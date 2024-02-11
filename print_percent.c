@@ -8,6 +8,6 @@
  */
 int print_percent(va_list ptr_to_arg)
 {
-	_putchar(37);
+	_putchar(va_arg(ptr_to_arg, int));
 	return (1);
 }
