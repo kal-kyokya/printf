@@ -18,8 +18,8 @@ int _strlen(char *s)
 }
 
 /**
- * _strlen - Determines the length of a string.
- * @s: String to pass in function.
+ * _strlenc - Determines the length of a constant string.
+ * @s: Constant string to pass in function.
  *
  * Return: Length of string.
  */

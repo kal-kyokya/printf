@@ -10,6 +10,7 @@ int print_char(va_list ptr_to_arg);
 int print_str(va_list ptr_to_arg);
 int print_nary(va_list ptr_to_arg);
 int _strlen(char *s);
+int _strlenc(const char *s);
 
 /**
  * struct typeXfunc - Matches specifier and function.
