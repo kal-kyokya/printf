@@ -11,13 +11,26 @@ int print_str(va_list ptr_to_arg)
 	char *s;
 	int count, len;
 
-	s = va_arg(ptr_to_arg, char*);
-	len = _strlen(s);
 	count = 0;
-	while (s[count] != '\0')
+	s = va_arg(ptr_to_arg, char*);
+	if (s == NULL)
 	{
-		_putchar(s[count]);
-		count++;
+		s = "(NULL)";
+		len = _strlen(s);
+		while (count < len)
+		{
+			_putchar(s[count]);
+			count++;
+		}
+	}
+	else
+	{
+		len = _strlen(s);
+		while (s[count] != '\0')
+		{
+			_putchar(s[count]);
+			count++;
+		}
 	}
 	return (len);
 }

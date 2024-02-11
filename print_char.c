@@ -4,7 +4,7 @@
  * print_char - Send a single character to stdout.
  * @ptr_to_arg: Pointer to nth variadic arguments.
  *
- * Return: 1.
+ * Return: The length of a char which is 1.
  */
 int print_char(va_list ptr_to_arg)
 {
