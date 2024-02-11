@@ -11,6 +11,8 @@ int print_str(va_list ptr_to_arg);
 int print_nary(va_list ptr_to_arg);
 int _strlen(char *s);
 int _strlenc(const char *s);
+int print_percent(va_list ptr_to_arg);
+
 
 /**
  * struct typeXfunc - Matches specifier and function.
