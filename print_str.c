@@ -9,7 +9,7 @@
 int print_str(va_list ptr_to_arg)
 {
 	char *s;
-	int count;
+	int count, len;
 
 	s = va_arg(ptr_to_arg, char*);
 	len = _strlen(s);
