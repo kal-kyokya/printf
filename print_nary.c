@@ -6,21 +6,21 @@
  *
  * Return: The length of the binary number.
  */
-int binary_printer(int x)
+int binary_printer(unsigned int x)
 {
-	int remainder, length;
+	unsigned int remainder, len;
 
 	remainder = x % 2;
-	length = 0;
 	if (x < 2)
 	{
+		len = 0;
 		_putchar(x);
 		len++;
 		return (len);
 	}
 	else
 	{
-		binary_printer(x / 2);
+		len = binary_printer(x / 2);
 	}
 	_putchar(remainder);
 	len++;
@@ -35,9 +35,11 @@ int binary_printer(int x)
  */
 int print_nary(va_list ptr_to_arg)
 {
-	int x;
+	unsigned int x, y;
 
+	if (va_arg(ptr_to_arg, int) < 0)
+		return (0);
 	x = va_arg(ptr_to_arg, int);
-	binary_printer(x);
-	return (x);
+	y = binary_printer(x);
+	return (y);
 }

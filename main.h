@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int _printf(const char *format, ...);
 int _putchar(char c);
@@ -12,6 +13,8 @@ int print_nary(va_list ptr_to_arg);
 int _strlen(char *s);
 int _strlenc(const char *s);
 int print_percent(va_list ptr_to_arg);
+int print_dec(va_list ptr_to_arg);
+int print_int(va_list ptr_to_arg);
 
 
 /**
@@ -26,7 +29,7 @@ int print_percent(va_list ptr_to_arg);
 typedef struct typeXfunc
 {
 	char *s;
-	void (*func)();
+	int (*func)();
 } txf;
 
 #endif

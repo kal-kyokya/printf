@@ -12,7 +12,9 @@ int _printf(const char *fmat, ...)
 		{"c", print_char},
 		{"s", print_str},
 		{"b", print_nary},
-		{"%", print_percent}
+		{"%", print_percent},
+		{"i", print_int},
+		{"d", print_dec}
 	};
 	va_list ptr_to_arg;
 	int i, count, len;
@@ -24,7 +26,7 @@ int _printf(const char *fmat, ...)
 		if (fmat[i] == 37)
 		{
 			count = 0;
-			while (count < 4)
+			while (count < 6)
 			{
 				if (tf[count].s[count] == fmat[i + 1])
 				{
