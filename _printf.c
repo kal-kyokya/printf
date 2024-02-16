@@ -8,38 +8,17 @@
  */
 int _printf(const char *fmat, ...)
 {
-	txf tf[] = {
-		{"c", print_char},
-		{"s", print_str},
-		{"b", print_nary},
-		{"%", print_percent},
-		{"i", print_int},
-		{"d", print_dec}
-	};
 	va_list ptr_to_arg;
-	int i, count, len;
+	int i, size, len;
 
+	if (fmat == NULL)
+		return (-1);
+	len = _strlenc(fmat);
+	if (len <= 0)
+		return (0);
 	va_start(ptr_to_arg, fmat);
-	i = len = 0;
-	while (fmat != NULL && fmat[i] != '\0')
-	{
-		if (fmat[i] == 37)
-		{
-			count = 0;
-			while (count < 6)
-			{
-				if (tf[count].s[count] == fmat[i + 1])
-				{
-					len += (tf[count].func(ptr_to_arg));
-					i++;
-					break;
-				}
-				count++;
-			}
-		}
-		i++;
-	}
-
+	size = txf_helper(fmat, ptr_to_arg);
+	_putchar(-1);
 	va_end(ptr_to_arg);
-	return (len);
+	return (size);
 }

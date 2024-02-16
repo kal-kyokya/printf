@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int _printf(const char *format, ...);
 int _putchar(char c);
@@ -15,7 +16,10 @@ int _strlenc(const char *s);
 int print_percent(va_list ptr_to_arg);
 int print_dec(va_list ptr_to_arg);
 int print_int(va_list ptr_to_arg);
-
+int print_nline(void);
+int buffer(char s);
+int txf_helper(const char *fmat, va_list ptr_to_arg);
+int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x);
 
 /**
  * struct typeXfunc - Matches specifier and function.
@@ -28,7 +32,7 @@ int print_int(va_list ptr_to_arg);
  */
 typedef struct typeXfunc
 {
-	char *s;
+	char s;
 	int (*func)();
 } txf;
 
