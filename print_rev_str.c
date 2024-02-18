@@ -9,11 +9,17 @@
 int print_rev_str(va_list ptr_to_arg)
 {
 	char *s;
-	int size;
+	int size, len;
 
+	len = 0;
 	s = va_arg(ptr_to_arg, char *);
-	size = rev_string(s);
-	just_print(s);
+	size = strlenc(s);
+	while (size >= 0)
+	{
+		size--;
+		_putchar(s[size]);
+		len++;
+	}
 
-	return (size);
+	return (len);
 }
