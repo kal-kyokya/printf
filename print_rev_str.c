@@ -12,7 +12,7 @@ int print_rev_str(va_list ptr_to_arg)
 	int size, len;
 
 	len = 0;
-	s = va_arg(ptr_to_arg, char *);
+	s = va_arg(ptr_to_arg, const char *);
 	size = strlenc(s);
 	while (size >= 0)
 	{
