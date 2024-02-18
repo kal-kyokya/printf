@@ -21,11 +21,13 @@ int rot13(char *s)
 		{
 			if (set1[count2] == s[count1])
 			{
-				s[count1] = set2[count2];
+				_putchar(set2[count2]);
 				break;
 			}
 			count2++;
 		}
+		if (!set1)
+			_putchar(s[count1]);
 
 		count1++;
 	}
