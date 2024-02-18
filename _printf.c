@@ -20,5 +20,6 @@ int _printf(const char *fmat, ...)
 	len = txf_helper(fmat, ptr_to_arg);
 	_putchar(-1);
 	va_end(ptr_to_arg);
+
 	return (len);
 }

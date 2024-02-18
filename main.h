@@ -13,7 +13,6 @@ int print_str(va_list ptr_to_arg);
 int print_nary(va_list ptr_to_arg);
 int _strlen(char *s);
 int _strlenc(const char *s);
-int print_percent(va_list ptr_to_arg);
 int print_dec(va_list ptr_to_arg);
 int print_int(va_list ptr_to_arg);
 int print_pointer(va_list ptr_to_arg);
