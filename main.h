@@ -20,6 +20,7 @@ int print_nline(void);
 int buffer(char s);
 int txf_helper(const char *fmat, va_list ptr_to_arg);
 int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x);
+char *_itoa(long int num, int base);
 
 /**
  * struct typeXfunc - Matches specifier and function.

@@ -12,7 +12,6 @@ int _putchar(char c)
 }
 
 /**
- *
  * buffer - Creates an array buffer in static memory to store char values.
  * @s: Character tp be passed in buffer function.
  *

@@ -14,7 +14,7 @@ int txf_helper(const char *fmat, va_list ptr_to_arg)
 	i = len = 0;
 	while (fmat[i] != '\0')
 	{
-		if (fmat[i] == 37 || fmat[i] == 92)
+		if (fmat[i] == '%' || fmat[i] == '\\')
 		{
 			count = txf_helper1(fmat, ptr_to_arg, &i);
 			if (count == -1)
