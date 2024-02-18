@@ -16,7 +16,7 @@ int _strlenc(const char *s);
 int print_percent(va_list ptr_to_arg);
 int print_dec(va_list ptr_to_arg);
 int print_int(va_list ptr_to_arg);
-int print_nline(void);
+int print_pointer(va_list ptr_to_arg);
 int buffer(char s);
 int txf_helper(const char *fmat, va_list ptr_to_arg);
 int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x);
@@ -28,6 +28,8 @@ int rev_string(char *s);
 int print_rev_str(va_list ptr_to_arg);
 int rot13(char *s);
 int print_rot13(va_list ptr_to_arg);
+int print_octa(va_list ptr_to_arg);
+int print_uint(va_list ptr_to_arg);
 
 /**
  * struct typeXfunc - Matches specifier and function.

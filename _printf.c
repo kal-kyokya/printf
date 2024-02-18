@@ -9,7 +9,7 @@
 int _printf(const char *fmat, ...)
 {
 	va_list ptr_to_arg;
-	int i, size, len;
+	int len;
 
 	if (fmat == NULL)
 		return (-1);
@@ -17,8 +17,8 @@ int _printf(const char *fmat, ...)
 	if (len <= 0)
 		return (0);
 	va_start(ptr_to_arg, fmat);
-	size = txf_helper(fmat, ptr_to_arg);
+	len = txf_helper(fmat, ptr_to_arg);
 	_putchar(-1);
 	va_end(ptr_to_arg);
-	return (size);
+	return (len);
 }
