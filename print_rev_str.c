@@ -16,7 +16,7 @@ int print_rev_str(va_list ptr_to_arg)
 	len = size - 1;
 	while (len >= 0)
 	{
-		_putchar(s[size]);
+		_putchar(s[len]);
 		len--;
 	}
 
