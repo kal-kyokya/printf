@@ -13,5 +13,6 @@ int print_pointer(va_list ptr_to_arg)
 
 	count = 0;
 	s = va_arg(ptr_to_arg, int);
-
+	s += count;
+	return (s);
 }
