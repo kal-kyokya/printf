@@ -43,7 +43,7 @@ int print_uint(va_list ptr_to_arg);
 typedef struct typeXfunc
 {
 	char s;
-	int (*func)();
+	int (*func)(va_list);
 } txf;
 
 #endif

@@ -11,7 +11,7 @@ int print_octa(va_list ptr_to_arg)
 	int count;
 	char *ptr;
 
-	ptr = _itoa(va_arg(ptr_to_arg, int), 8);
+	ptr = _itoa(va_arg(ptr_to_arg, unsigned int), 8);
 
 	count = just_print((ptr != NULL) ? ptr : "NULL");
 

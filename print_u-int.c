@@ -8,13 +8,12 @@
  */
 int print_uint(va_list ptr_to_arg)
 {
-	int count, input;
+	int count;
 	char *ptr;
 
-	input = va_arg(ptr_to_arg, int);
-	ptr = _itoa(input, 10);
+	ptr = _itoa(va_arg(ptr_to_arg, unsigned int), 10);
 
-	count = just_print((input < 0) ? "NULL" : ptr);
+	count = just_print((ptr == NULL) ? "NULL" : ptr);
 
 	return (count);
 }
