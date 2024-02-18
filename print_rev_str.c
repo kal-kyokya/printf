@@ -8,7 +8,7 @@
  */
 int print_rev_str(va_list ptr_to_arg)
 {
-	char *s;
+	const char *s;
 	int size, len;
 
 	s = va_arg(ptr_to_arg, const char *);
