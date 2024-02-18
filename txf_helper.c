@@ -24,7 +24,7 @@ int txf_helper(const char *fmat, va_list ptr_to_arg)
 			continue;
 		}
 		_putchar(fmat[i]);
-		len++;
+		len = len + 1;
 		i++;
 	}
 

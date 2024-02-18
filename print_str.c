@@ -12,7 +12,7 @@ int print_str(va_list ptr_to_arg)
 	int len;
 
 	s = va_arg(ptr_to_arg, char *);
-	len = just_print((s != NULL) ? s : "(NULL)");
+	len = just_print((s != NULL) ? s : "NULL");
 
 	return (len);
 }
