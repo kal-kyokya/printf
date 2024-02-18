@@ -8,21 +8,12 @@
  */
 int print_int(va_list ptr_to_arg)
 {
-	int divisor, count;
-	long int input;
+	int count;
 	char *ptr;
 
-	divisor = 10;
-	input = va_arg(ptr_to_arg, long int);
-	if (input < 0)
-		input *= -1;
-	ptr = _itoa(input, divisor);
-	count = 0;
-	while (ptr[count] != '\0')
-	{
-		_putchar(ptr[count]);
-		count++;
-	}
+	ptr = _itoa(va_arg(ptr_to_arg, int), 10);
+
+	count = just_print((ptr != NULL) ? ptr : "NULL");
 
 	return (count);
 }

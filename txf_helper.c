@@ -43,8 +43,10 @@ int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x)
 	txf tf[] = {
 		{'c', print_char}, {'s', print_str},
 		{'b', print_nary}, {'%', print_percent},
-		{'i', print_int}, {'d', print_dec},
-		{'n', print_nline}
+		{'i', print_int}, {'d', print_int},
+		{'n', print_nline}, {'x', print_hexa},
+		{'X', print_Hexa}, {'r', print_rev_str},
+		{'R', print_rot13}
 	};
 	int count, tfs, size;
 

@@ -9,28 +9,10 @@
 int print_str(va_list ptr_to_arg)
 {
 	char *s;
-	int count, len;
+	int len;
 
-	count = 0;
-	s = va_arg(ptr_to_arg, char*);
-	if (s == NULL)
-	{
-		s = "(NULL)";
-		len = _strlen(s);
-		while (count < len)
-		{
-			_putchar(s[count]);
-			count++;
-		}
-	}
-	else
-	{
-		len = _strlen(s);
-		while (s[count] != '\0')
-		{
-			_putchar(s[count]);
-			count++;
-		}
-	}
+	s = va_arg(ptr_to_arg, char *);
+	len = just_print((s == NULL) ? "NULL" : s);
+
 	return (len);
 }

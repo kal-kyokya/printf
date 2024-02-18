@@ -8,19 +8,12 @@
  */
 int print_nary(va_list ptr_to_arg)
 {
-	int divisor, count;
-	long int input;
+	int count;
 	char *ptr;
 
-	divisor = 2;
-	input = va_arg(ptr_to_arg, long int);
-	ptr = _itoa(input, divisor);
-	count = 0;
-	while (ptr[count] != '\0')
-	{
-		_putchar(ptr[count]);
-		count++;
-	}
+	ptr = _itoa(va_arg(ptr_to_arg, int), 2);
+
+	count = just_print((ptr != NULL) ? ptr : "NULL");
 
 	return (count);
 }
