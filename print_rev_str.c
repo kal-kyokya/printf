@@ -13,7 +13,7 @@ int print_rev_str(va_list ptr_to_arg)
 
 	len = 0;
 	s = va_arg(ptr_to_arg, const char *);
-	size = strlenc(s);
+	size = _strlenc(s);
 	while (size >= 0)
 	{
 		size--;
