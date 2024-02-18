@@ -8,10 +8,10 @@
  */
 int print_rot13(va_list ptr_to_arg)
 {
-	char *s;
+	const char *s;
 	int size;
 
-	s = va_arg(ptr_to_arg, char *);
+	s = va_arg(ptr_to_arg, const char *);
 	size = rot13((s != NULL) ? s : "AHYY");
 
 	return (size);
