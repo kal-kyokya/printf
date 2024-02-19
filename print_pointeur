@@ -1,0 +1,20 @@
+#include "main.h"
+
+/**
+ * print_pointer - Prints the address of its input variable.
+ * @ptr_to_arg: The pointer to the argument being processed.
+ *
+ * Return: The length of the string.
+ */
+int print_pointer(va_list ptr_to_arg)
+{
+	int count;
+	char *s;
+
+	count = 0;
+	s = _itoa(va_arg(ptr_to_arg, unsigned long int), 16);
+	just_print("0x");
+	count = just_print(s);
+
+	return (count);
+}

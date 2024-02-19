@@ -28,6 +28,9 @@ int rot13(char *s);
 int print_rot13(va_list ptr_to_arg);
 int print_octa(va_list ptr_to_arg);
 int print_uint(va_list ptr_to_arg);
+int _strcmp(char *, char *);
+int print_pointer(va_list list);
+
 
 /**
  * struct typeXfunc - Matches specifier and function.
