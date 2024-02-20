@@ -47,7 +47,8 @@ int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x)
 		{'i', print_int}, {'d', print_int},
 		{'p', print_pointer}, {'x', print_hexa},
 		{'X', print_Hexa}, {'r', print_rev_str},
-		{'u', print_uint}, {'o', print_octa}
+		{'u', print_uint}, {'o', print_octa},
+		{'S', print_S}
 	};
 	int count, tfs, size;
 
@@ -71,9 +72,42 @@ int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x)
 		}
 		count++;
 	}
+	if (fmat[*x - 1] == '%' && fmat[*x + 1] == 'd')
+	{
+		size = txf_helper2(fmat, ptr_to_arg, &x);
+		return (size);
+	}
 
 	_putchar('%');
 	_putchar(fmat[*x]);
 
 	return (2);
+}
+
+/**
+ * txf_helper2 - Facilitates linking of non conv. fmat spec. to function.
+ * @fmat: Pointer to formatted string.
+ * @ptr_to_arg: Pointer to the argument being processed.
+ * @x: Pointer index to current fmat element.
+ *
+ * Return: Length of printed string.
+ */
+int txf_helper2(const char *fmat, va_list ptr_to_arg, int *x)
+{
+	txf tf[] = {
+		{'+', print_plus}, {' ', print_space},
+	};
+	int count, tfs;
+
+	tfs = sizeof(tf) / sizeof(tf[0]);
+	count = 0;
+	while (count < tfs)
+	{
+		if (tf[count].c == fmat[*x])
+		{
+			size = tf[count].func(ptr_to_arg);
+			return (-1);
+		}
+		count++;
+	}
 }

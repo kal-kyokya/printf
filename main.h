@@ -30,6 +30,7 @@ int print_octa(va_list ptr_to_arg);
 int print_uint(va_list ptr_to_arg);
 int _strcmp(char *, char *);
 int print_pointer(va_list list);
+int print_S(va_list ptr_to_arg);
 
 
 /**
