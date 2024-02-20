@@ -34,6 +34,7 @@ int print_S(va_list ptr_to_arg);
 int print_space(va_list ptr_to_arg);
 int print_plus(va_list ptr_to_arg);
 int txf_helper2(const char *fmat, va_list ptr_to_arg, int *x);
+int print_hash(va_list ptr_to_arg);
 
 
 /**

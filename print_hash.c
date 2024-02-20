@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * print_plus - Send an integer number to stdout with the + specifier involved.
+ * print_hash - Send an integer number to stdout with the # specifier involved.
  * @ptr_to_arg: Integer to be printed.
  *
  * Return: Length of integer.
  */
-int print_int(va_list ptr_to_arg)
+int print_hash(va_list ptr_to_arg)
 {
 	int count;
 	char *ptr;

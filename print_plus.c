@@ -6,7 +6,7 @@
  *
  * Return: Length of integer.
  */
-int print_int(va_list ptr_to_arg)
+int print_plus(va_list ptr_to_arg)
 {
 	int count;
 	char *ptr;
