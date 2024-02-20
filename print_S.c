@@ -9,7 +9,7 @@
 int print_S(va_list ptr_to_arg)
 {
 	char *s1, *s2;
-	int count, size, temp;
+	int count, count1, size, temp;
 
 	size = count = temp = 0;
 	s1 = va_arg(ptr_to_arg, char *);
@@ -20,7 +20,16 @@ int print_S(va_list ptr_to_arg)
 		{
 			size += just_print("\\x");
 			temp = s1[count];
-			s2 = _iota(temp, 16);
+			if (temp < 16)
+				size += just_print("0");
+			s2 = _itoa(temp, 16);
+			count1 = 0;
+			while (s2[count1] != '\0')
+			{
+				if (s2[count1] <= 'z' && s2[count1] >= 'a')
+					s2[count1] = s2[count1] - 32;
+				count1++;
+			}
 			size += just_print((s2 != NULL) ? s2 : "NULL");
 		}
 		count++;
