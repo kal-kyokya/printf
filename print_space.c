@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_space - Send an integer number to stdout with the space specifier involved.
+ * print_space - Send an integer to stdout with the space specifier involved.
  * @ptr_to_arg: Integer to be printed.
  *
  * Return: Length of integer.

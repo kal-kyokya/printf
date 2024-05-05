@@ -94,14 +94,19 @@ int txf_helper1(const char *fmat, va_list ptr_to_arg, int *x)
  */
 int txf_helper2(const char *fmat, va_list ptr_to_arg, int *x, char c)
 {
-	txf tf[] = {
-		{'+', print_plus}, {' ', print_space}
+	txf1 tf[] = {
+			{"+d", print_plus}, {" d", print_space}, {"#o", print_hasho},
+			{"#x", print_hashx}, {"#X", print_hashX}, {"ld", print_lint},
+			{"lf", print_lint}, {"+i", print_plus}, {" i", print_space},
+			{"li", print_lint}, {"hd", print_sint}, {"hi", print_sint},
+			{"hx", print_shex},
 	};
 	int count, tfs, size;
 
-	size = *x;
 	tfs = sizeof(tf) / sizeof(tf[0]);
-	count = 0;
+	size = count = 0;
+	if (fmat[*x] > 47 && fmat[*x] < 58)
+	  
 	while (count < tfs)
 	{
 		if (tf[count].s == fmat[*x])
